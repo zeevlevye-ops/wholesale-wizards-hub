@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  YESH MARKET B2B - Design System
+  Industrial/Wholesale Theme - Mexican Manufacturing
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Core Brand - Warm Gold/Copper industrial feel */
+    --background: 40 20% 98%;
+    --foreground: 220 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 12%;
+
+    /* Primary - Deep Navy Blue (Trust/Corporate) */
+    --primary: 220 60% 20%;
+    --primary-foreground: 40 30% 96%;
+
+    /* Secondary - Warm Copper/Gold (Manufacturing/Quality) */
+    --secondary: 32 80% 50%;
+    --secondary-foreground: 220 25% 10%;
+
+    /* Muted - Soft Industrial Gray */
+    --muted: 40 10% 94%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Accent - Vibrant Gold */
+    --accent: 40 90% 55%;
+    --accent-foreground: 220 25% 10%;
+
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success - For availability/stock */
+    --success: 142 70% 40%;
+    --success-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 32 80% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom B2B tokens */
+    --factory-badge: 32 85% 48%;
+    --wholesale-highlight: 40 100% 50%;
+    --trust-seal: 142 60% 35%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 60% 15%) 0%, hsl(220 50% 25%) 50%, hsl(32 60% 30%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(32 90% 45%) 0%, hsl(40 95% 50%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(40 20% 97%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(220 25% 12% / 0.08);
+    --shadow-medium: 0 8px 30px -8px hsl(220 25% 12% / 0.12);
+    --shadow-strong: 0 20px 50px -15px hsl(220 25% 12% / 0.2);
+    --shadow-glow: 0 0 40px -10px hsl(32 80% 50% / 0.4);
+
+    /* Sidebar (keeping defaults) */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 40 20% 95%;
+
+    --card: 220 25% 12%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 220 25% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 40 90% 55%;
+    --primary-foreground: 220 25% 10%;
+
+    --secondary: 32 70% 45%;
+    --secondary-foreground: 40 20% 95%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 40 10% 60%;
+
+    --accent: 32 80% 50%;
+    --accent-foreground: 220 25% 10%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 32 80% 50%;
+
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 40 20% 90%;
+    --sidebar-primary: 40 90% 55%;
+    --sidebar-primary-foreground: 220 25% 10%;
+    --sidebar-accent: 220 20% 18%;
+    --sidebar-accent-foreground: 40 20% 90%;
+    --sidebar-border: 220 20% 20%;
+    --sidebar-ring: 32 80% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .badge-factory {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full;
+    background: linear-gradient(135deg, hsl(var(--factory-badge)) 0%, hsl(var(--accent)) 100%);
+    color: hsl(var(--primary));
+  }
+
+  .badge-wholesale {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-md;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .badge-stock {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold rounded-full;
+    background: hsl(var(--success) / 0.15);
+    color: hsl(var(--success));
+  }
+
+  .section-divider {
+    @apply w-20 h-1 rounded-full mx-auto;
+    background: var(--gradient-cta);
+  }
+
+  .card-product {
+    @apply relative overflow-hidden rounded-2xl;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-medium);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-product:hover {
+    box-shadow: var(--shadow-strong), var(--shadow-glow);
+    transform: translateY(-4px);
+  }
+
+  .text-gradient {
+    background: var(--gradient-cta);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .cta-gradient {
+    background: var(--gradient-cta);
+    box-shadow: 0 4px 20px -4px hsl(32 80% 50% / 0.5);
+    transition: all 0.3s ease;
+  }
+
+  .cta-gradient:hover {
+    box-shadow: 0 8px 30px -4px hsl(32 80% 50% / 0.6);
+    transform: translateY(-2px);
+  }
+
+  .input-b2b {
+    @apply w-full px-4 py-3 rounded-xl border-2 border-border bg-card text-foreground;
+    @apply focus:outline-none focus:border-secondary focus:ring-4 focus:ring-secondary/20;
+    @apply transition-all duration-200;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 3s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
