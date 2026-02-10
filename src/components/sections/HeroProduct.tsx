@@ -105,11 +105,11 @@ const HeroProduct = ({
           {/* Product Image */}
           <div className="relative">
             <div className="relative z-10 animate-float">
-              <div className="aspect-square rounded-3xl overflow-hidden shadow-strong bg-card/10 backdrop-blur-sm border border-white/10">
+              <div className="aspect-square rounded-3xl overflow-hidden shadow-strong bg-white backdrop-blur-sm border border-white/10 flex items-center justify-center p-6">
                 <img
                   src={imageUrl}
                   alt={productName}
-                  className="w-full h-full object-cover"
+                  className="max-w-full max-h-full object-contain"
                 />
               </div>
               

@@ -54,11 +54,11 @@ const ProductCard = ({ product, theme }: ProductCardProps) => {
       className="group card-product overflow-hidden border border-border hover:border-secondary/30 transition-all duration-300"
     >
       {/* Image */}
-      <div className="aspect-square overflow-hidden bg-muted">
+      <div className="aspect-square overflow-hidden bg-white flex items-center justify-center p-4">
         <img
           src={product.imageMain}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
       </div>
