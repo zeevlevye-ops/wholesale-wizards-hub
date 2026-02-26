@@ -1,22 +1,44 @@
-name: Build Website
+name: Deploy Website to GoDaddy
+
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main  # Se activa automáticamente al guardar cambios en la rama main
+
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node.js
+      # 1. Descargar el código de tu GitHub
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      # 2. Configurar el entorno de Node.js
+      - name: 🛠️ Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Upload Build
+
+      # 3. Instalar dependencias y "hornear" el sitio
+      - name: 📦 Install and Build
+        run: |
+          npm install
+          npm run build
+
+      # 4. (Opcional) Guardar una copia en GitHub como hiciste antes
+      - name: 📂 Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: website-dist
           path: dist/
+
+      # 5. ENVIAR A GODADDY automáticamente
+      - name: 🚀 Sync Files to GoDaddy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ./  # Usamos ./ porque la cuenta FTP ya apunta a public_html
+          dangerous-clean-slate: false # Para no borrar tus imágenes en la carpeta img
