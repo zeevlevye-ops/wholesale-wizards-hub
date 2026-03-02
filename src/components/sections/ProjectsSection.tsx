@@ -97,7 +97,7 @@ const ProjectsSection = () => {
             </div>
 
             {/* Decorative element */}
-            <div className="absolute -z-10 -bottom-4 -right-4 w-full h-full rounded-3xl bg-secondary/20" />
+            <div className="hidden md:block absolute -z-10 -bottom-4 -right-4 w-full h-full rounded-3xl bg-secondary/20" />
           </div>
         </div>
       </div>
