@@ -6,6 +6,7 @@ import TrustSignals from "@/components/sections/TrustSignals";
 import ProductBenefits from "@/components/sections/ProductBenefits";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import QuoteForm from "@/components/sections/QuoteForm";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -29,6 +30,7 @@ const Index = () => {
       </main>
       
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
