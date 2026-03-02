@@ -40,7 +40,7 @@ const Header = ({ categorySlug }: HeaderProps) => {
     <header className="w-full bg-card/80 backdrop-blur-md border-b border-border sticky top-0 z-50">
       {/* Top bar */}
       <div className="bg-primary text-primary-foreground py-1.5 md:py-2">
-        <div className="container flex items-center justify-between gap-2 text-xs md:text-sm">
+        <div className="container flex items-center justify-between gap-2 text-xs md:text-sm overflow-hidden">
           <div className="flex items-center gap-3 md:gap-6">
             <a href="tel:+525525897917" className="flex items-center gap-1.5 hover:text-secondary transition-colors">
               <Phone className="w-3.5 h-3.5" />
